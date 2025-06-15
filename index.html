@@ -32,7 +32,7 @@ function compartirContenido() {
 <link href="favicon.png" rel="icon" type="image/png"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." referrerpolicy="no-referrer" rel="stylesheet"/>
 <link href="manifest.json" rel="manifest"/>
-<meta content="#bc0000" name="theme-color"/>
+<meta content="#ffcc00" name="theme-color"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Radio Pasión</title>
@@ -42,7 +42,7 @@ function compartirContenido() {
     }
     .social a:hover {
       transform: scale(1.2) rotate(5deg);
-      box-shadow: 0 0 12px #ffffff;
+      box-shadow: 0 0 12px #ffcc00cc;
     }
 
     .social a {
@@ -57,16 +57,16 @@ function compartirContenido() {
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-  font-family: Arial, sans-serif;
-  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  position: relative;
-  overflow-x: hidden;
-}
-    header {
-      background: #bc0300;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      background: #f5f5f5;
       color: white;
+      position: relative;
+      overflow-x: hidden;
+    }
+    header {
+      background: #ffcc00;
+      color: black;
       padding: 15px;
       display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
       font-size: 20px;
@@ -162,18 +162,14 @@ function compartirContenido() {
     .footer {
       margin-top: 40px;
       padding: 10px;
-      background:
+      background: rgba(0,0,0,0.5);
     }
   
   /* Puedes cambiar el fondo aquí: reemplaza 'fondo.jpg' por tu imagen */
   body {
-  font-family: Arial, sans-serif;
-  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  position: relative;
-  overflow-x: hidden;
-}
+    background: url('fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
 
 </style>
 
@@ -252,12 +248,8 @@ function compartirContenido() {
 
 <style>
 body {
-  font-family: Arial, sans-serif;
-  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  position: relative;
-  overflow-x: hidden;
+  background: linear-gradient(135deg, #fff1f2, #ffe0e0);
+  background-attachment: fixed;
 }
 </style>
 
@@ -273,11 +265,8 @@ body {
 
 <style>
 body {
-  font-family: Arial, sans-serif;
-  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  position: relative;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 #blur-bg {
@@ -292,7 +281,7 @@ body {
   z-index: -1;
 }
 </style>
-<div id="blur-bg" style="background-image: url('https://i.postimg.cc/dtgdytFR/fondo.png'); background-position: center; background-size: cover; filter: blur(15px);"></div>
+<div id="blur-bg" style="filter: blur(15px);"></div>
 
 
 
@@ -342,51 +331,44 @@ body {
 </audio>
 <h2 style="font-size: 20px; margin-bottom: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white;">Radio Pasión</h2>
 <p style="font-size: 14px; margin-bottom: 10px; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;"><span id="title-meta">Cargando título...</span></p>
-
 <script>
-let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
-const installContainer = document.getElementById('installContainer');
+  let deferredPrompt;
+  const installBtn = document.getElementById('installBtn');
+  const installContainer = document.getElementById('installContainer');
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installContainer.style.display = 'block';
-});
-
-installBtn.addEventListener('click', async () => {
-  installContainer.style.display = 'none';
-  if (deferredPrompt) {
-    await deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    deferredPrompt = null;
-  }
-});
-
-window.addEventListener('appinstalled', () => {
-  localStorage.setItem('appInstalled', 'true');
-  installContainer.style.display = 'none';
-});
-
-if (localStorage.getItem('appInstalled') === 'true') {
-  installContainer.style.display = 'none';
-}
-</script>
-
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js').then(() => {
-    console.log('Service Worker registrado');
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installContainer.style.display = 'block';
   });
-}
-</script>
 
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        installContainer.style.display = 'none';
+      }
+      deferredPrompt = null;
+    }
+  });
+
+    // Ocultar si ya fue instalada
+    window.addEventListener('appinstalled', () => {
+      localStorage.setItem('appInstalled', 'true');
+      installContainer.style.display = 'none';
+    });
+
+    if (localStorage.getItem('appInstalled') === 'true') {
+      installContainer.style.display = 'none';
+    }
+    </script>
 <div class="social" style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
 <a href="https://facebook.com/radiopasion" target="_blank"><img alt="Facebook" src="https://i.postimg.cc/8kfCdqnt/facebook.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 <a href="https://youtube.com/@radiopasion" target="_blank"><img alt="YouTube" src="https://i.postimg.cc/8z59MVZC/youtube.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 <a href="https://wa.me/?text=Escucha%20Radio%20Pasi%C3%B3n%20en%20https%3A%2F%2Fradiopasion.com" target="_blank"><img alt="WhatsApp" src="https://i.postimg.cc/1zFWrRwy/whatsapp.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 <a href="https://tiktok.com/@radiopasion" target="_blank"><img alt="TikTok" src="https://i.postimg.cc/c1FcYt2Q/tiktok.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
-<a href="https://t.me/radiopasion" target="_blank"><img alt="web" src="https://i.postimg.cc/B6NXgYcT/web.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://t.me/radiopasion" target="_blank"><img alt="Telegram" src="https://i.postimg.cc/wvLjzNNn/telegram-icon-free-png.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 </div>
 
 
@@ -549,16 +531,10 @@ async function cargarMetadata() {
 
     titulo.textContent = data.title || "Sin título";
     if (data.art && !data.art.includes("nodj.png")) {
-  logo.src = data.art;
-  blurbg.style.backgroundImage = `url('${data.art}')`;
-  blurbg.style.filter = "blur(15px)";
-  blurbg.style.backgroundColor = "";
-} else {
-  logo.src = "logo.png";
-  blurbg.style.backgroundImage = "url('https://i.postimg.cc/dtgdytFR/fondo.png')";
-  blurbg.style.backgroundColor = "#000";
-  blurbg.style.filter = "blur(15px)";
-}
+      logo.src = data.art;
+    } else {
+      logo.src = "logo.png";
+    }
   } catch (e) {
     document.getElementById("title-meta").textContent = "⚠️ Error al cargar metadatos";
   }
@@ -806,5 +782,30 @@ function enviarFormulario() {
 </script>
 
 
+
+
+  <button id="installButton" style="display:none; background-color:#ff1744; color:white; font-size:16px; padding:10px 20px; border:none; border-radius:24px; margin-top:20px;">
+    📲 Instalar App
+  </button>
+
+
+  <script>
+    let deferredPrompt;
+    const installButton = document.getElementById('installButton');
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installButton.style.display = 'inline-block';
+      installButton.addEventListener('click', () => {
+        installButton.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then(choice => {
+          if (choice.outcome !== 'accepted') {
+            installButton.style.display = 'inline-block';
+          }
+        });
+      });
+    });
+  </script>
 
 </body>

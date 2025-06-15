@@ -1,13 +1,19 @@
+
 {
-  "name": "Radio Pasi\u00f3n",
-  "short_name": "RadioPasi\u00f3n",
-  "start_url": "./index.html",
+  "name": "Radio Pasión",
+  "short_name": "Radio Pasión",
+  "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#bc0000",
-  "theme_color": "#bc0000",
+  "background_color": "#000000",
+  "theme_color": "#d50000",
   "icons": [
     {
-      "src": "https://i.postimg.cc/bNdFL0Jj/twtwtetet.png",
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
