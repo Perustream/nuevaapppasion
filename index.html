@@ -342,44 +342,45 @@ body {
 </audio>
 <h2 style="font-size: 20px; margin-bottom: 0px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white;">Radio Pasión</h2>
 <p style="font-size: 14px; margin-bottom: 10px; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;"><span id="title-meta">Cargando título...</span></p>
+
 <script>
-  let deferredPrompt;
-  const installBtn = document.getElementById('installBtn');
-  const installContainer = document.getElementById('installContainer');
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+const installContainer = document.getElementById('installContainer');
 
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    installContainer.style.display = 'block';
-  });
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installContainer.style.display = 'block';
+});
 
-  installBtn.addEventListener('click', async () => {
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        installContainer.style.display = 'none';
-      }
-      deferredPrompt = null;
-    }
-  });
-
-    // Ocultar si ya fue instalada
-    window.addEventListener('appinstalled', () => {
-      localStorage.setItem('appInstalled', 'true');
-      installContainer.style.display = 'none';
-    });
-
-    if (localStorage.getItem('appInstalled') === 'true') {
+installBtn.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
       installContainer.style.display = 'none';
     }
-    </script>
+    deferredPrompt = null;
+  }
+});
+
+window.addEventListener('appinstalled', () => {
+  localStorage.setItem('appInstalled', 'true');
+  installContainer.style.display = 'none';
+});
+
+if (localStorage.getItem('appInstalled') === 'true') {
+  installContainer.style.display = 'none';
+}
+</script>
+
 <div class="social" style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
 <a href="https://facebook.com/radiopasion" target="_blank"><img alt="Facebook" src="https://i.postimg.cc/8kfCdqnt/facebook.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 <a href="https://youtube.com/@radiopasion" target="_blank"><img alt="YouTube" src="https://i.postimg.cc/8z59MVZC/youtube.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 <a href="https://wa.me/?text=Escucha%20Radio%20Pasi%C3%B3n%20en%20https%3A%2F%2Fradiopasion.com" target="_blank"><img alt="WhatsApp" src="https://i.postimg.cc/1zFWrRwy/whatsapp.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 <a href="https://tiktok.com/@radiopasion" target="_blank"><img alt="TikTok" src="https://i.postimg.cc/c1FcYt2Q/tiktok.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
-<a href="https://t.me/radiopasion" target="_blank"><img alt="web" src="https://i.postimg.cc/B6NXgYcT/web.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
+<a href="https://t.me/radiopasion" target="_blank"><img alt="Telegram" src="https://i.postimg.cc/wvLjzNNn/telegram-icon-free-png.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
 </div>
 
 
