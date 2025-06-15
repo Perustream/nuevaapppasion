@@ -57,13 +57,13 @@ function compartirContenido() {
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: Arial, sans-serif;
-      background: #bd0101;
-      background: #ffffff;
-      color: black;
-      position: relative;
-      overflow-x: hidden;
-    }
+  font-family: Arial, sans-serif;
+  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
     header {
       background: #bc0300;
       color: white;
@@ -167,9 +167,13 @@ function compartirContenido() {
   
   /* Puedes cambiar el fondo aquí: reemplaza 'fondo.jpg' por tu imagen */
   body {
-    background: url('fondo.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
+  font-family: Arial, sans-serif;
+  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
 
 </style>
 
@@ -248,8 +252,12 @@ function compartirContenido() {
 
 <style>
 body {
-  background: linear-gradient(135deg, #fff1f2, #ffe0e0);
-  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
 }
 </style>
 
@@ -262,11 +270,20 @@ body {
 </style>
 </head>
 <body>
+<div id="installContainer" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999;">
+  <button id="installBtn" style="padding:10px 20px;font-size:16px;background:#bd0101;color:#fff;border:none;border-radius:5px;cursor:pointer;">
+    Instalar aquí la app
+  </button>
+</div>
+
 
 <style>
 body {
-  margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('https://i.postimg.cc/dtgdytFR/fondo.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  position: relative;
   overflow-x: hidden;
 }
 #blur-bg {
@@ -281,7 +298,7 @@ body {
   z-index: -1;
 }
 </style>
-<div id="blur-bg" style="filter: blur(15px);"></div>
+<div id="blur-bg" style="background-image: url('https://i.postimg.cc/dtgdytFR/fondo.png'); background-size: cover; background-position: center; filter: blur(15px);"></div>
 
 
 
@@ -337,32 +354,26 @@ let deferredPrompt;
 const installBtn = document.getElementById('installBtn');
 const installContainer = document.getElementById('installContainer');
 
-// Mostrar el botón solo si el evento beforeinstallprompt es lanzado
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
   installContainer.style.display = 'block';
 });
 
-// Al hacer clic en el botón, disparar el prompt y ocultar el botón
 installBtn.addEventListener('click', async () => {
-  installContainer.style.display = 'none';
+  installContainer.style.display = 'none'; // Ocultar inmediatamente
   if (deferredPrompt) {
     deferredPrompt.prompt();
-    const result = await deferredPrompt.userChoice;
-    console.log('User response to install prompt:', result.outcome);
+    await deferredPrompt.userChoice;
     deferredPrompt = null;
   }
 });
 
-// Si ya está instalada, no mostrar el botón
 window.addEventListener('appinstalled', () => {
   console.log('App instalada');
-  installContainer.style.display = 'none';
   localStorage.setItem('appInstalled', 'true');
 });
 
-// Revisar si ya estaba instalada antes
 if (localStorage.getItem('appInstalled') === 'true') {
   installContainer.style.display = 'none';
 }
@@ -786,6 +797,39 @@ function enviarFormulario() {
 
 </script>
 
+
+
+
+
+<script>
+let deferredPrompt;
+const installBtn = document.getElementById('installBtn');
+const installContainer = document.getElementById('installContainer');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installContainer.style.display = 'block';
+});
+
+installBtn.addEventListener('click', async () => {
+  installContainer.style.display = 'none'; // Ocultar inmediatamente
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  }
+});
+
+window.addEventListener('appinstalled', () => {
+  console.log('App instalada');
+  localStorage.setItem('appInstalled', 'true');
+});
+
+if (localStorage.getItem('appInstalled') === 'true') {
+  installContainer.style.display = 'none';
+}
+</script>
 
 
 </body>

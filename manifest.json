@@ -1,13 +1,13 @@
 {
-  "name": "Radio Pasion",
-  "short_name": "Radio Pasion",
+  "name": "Radio Pasi\u00f3n",
+  "short_name": "Radio Pasi\u00f3n",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#bd0101",
-  "theme_color": "#ffffff",
+  "theme_color": "#bd0101",
   "icons": [
     {
-      "src": "https://i.postimg.cc/XvXbmn5D/instal.png",
+      "src": "https://i.postimg.cc/bNdFL0Jj/twtwtetet.png",
       "sizes": "512x512",
       "type": "image/png"
     }
