@@ -1,0 +1,15 @@
+{
+  "name": "Radio Pasion",
+  "short_name": "Radio Pasion",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#bd0101",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/XvXbmn5D/instal.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
