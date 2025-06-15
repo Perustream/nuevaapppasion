@@ -1,10 +1,10 @@
 {
   "name": "Radio Pasi\u00f3n",
-  "short_name": "Radio Pasi\u00f3n",
+  "short_name": "RadioPasi\u00f3n",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#bd0101",
-  "theme_color": "#bd0101",
+  "background_color": "#bc0000",
+  "theme_color": "#bc0000",
   "icons": [
     {
       "src": "https://i.postimg.cc/bNdFL0Jj/twtwtetet.png",
