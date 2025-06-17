@@ -1,10 +1,10 @@
 {
-  "name": "Radio Pasi\u00f3n",
-  "short_name": "RadioPasi\u00f3n",
+  "name": "Radio Pasion - La Radio del Amor",
+  "short_name": "Radio Pasion - La radio del amor",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#800000",
+  "theme_color": "#ffffff",
   "icons": [
     {
       "src": "https://i.postimg.cc/d0gF8T5b/FB-IMG-1749159170810.jpg",
