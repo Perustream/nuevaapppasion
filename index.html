@@ -14,7 +14,7 @@
 <script>
 function compartirContenido() {
   const url = "https://radiopasion.com";
-  const texto = "Escucha la radio del amor ❤️ en https://nuevaapppasion.vercel.app/";
+  const texto = "Escucha la radio del amor ❤️ en https://radiopasion.com";
 
   if (navigator.share) {
     navigator.share({
@@ -982,6 +982,20 @@ document.addEventListener('keydown', e => {
 });
 document.addEventListener('selectstart', e => e.preventDefault());
 document.addEventListener('copy', e => e.preventDefault());
+</script>
+
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(() => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+    }
+  }, 500);
+});
 </script>
 
 </body>
