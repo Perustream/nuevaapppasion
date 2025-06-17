@@ -3,6 +3,14 @@
 
 <html lang="es">
 <head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
+
 <script>
 function compartirContenido() {
   const url = "https://radiopasion.com";
@@ -12,7 +20,7 @@ function compartirContenido() {
     navigator.share({
       title: 'Radio Pasión',
       text: texto,
-      url: urlhhgeh
+      url: url
     }).catch(console.error);
   } else {
     const mensaje = encodeURIComponent(texto);
@@ -32,7 +40,7 @@ function compartirContenido() {
 <link href="favicon.png" rel="icon" type="image/png"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." referrerpolicy="no-referrer" rel="stylesheet"/>
 <link href="manifest.json" rel="manifest"/>
-<meta content="#ffcc00" name="theme-color"/>
+<meta content="#c62828" name="theme-color"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Radio Pasión</title>
@@ -42,7 +50,7 @@ function compartirContenido() {
     }
     .social a:hover {
       transform: scale(1.2) rotate(5deg);
-      box-shadow: 0 0 12px #ffcc00cc;
+      box-shadow: 0 0 12px #c62828cc;
     }
 
     .social a {
@@ -63,10 +71,10 @@ function compartirContenido() {
       color: white;
       position: relative;
       overflow-x: hidden;
-    }
+     background: url(https://i.postimg.cc/qBKJG06P/images-2025-06-16-T225629-774.jpg) no-repeat center center fixed; background-size: cover;}
     header {
-      background: #ffcc00;
-      color: black;
+      background: #c62828;
+      color: white;
       padding: 15px;
       display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
       font-size: 20px;
@@ -98,16 +106,16 @@ function compartirContenido() {
       100% { transform: rotate(360deg); }
     }
     .status {
-      background: #ffcc00;
-      color: black;
+      background: #c62828;
+      color: white;
       padding: 8px 20px;
       margin: 20px 0;
       border-radius: 20px;
       font-weight: bold;
     }
     .live-badge {
-      background: red;
-      color: white;
+      background: #ffeb3b;
+      color: black;
       font-weight: bold;
       padding: 5px 10px;
       border-radius: 5px;
@@ -121,7 +129,7 @@ function compartirContenido() {
       50% { opacity: 0.4; }
     }
     .play-btn {
-      background: #ffcc00;
+      background: #c62828;
       border-radius: 50%;
       width: 80px;
       height: 80px;
@@ -144,7 +152,7 @@ function compartirContenido() {
       gap: 15px;
     }
     .social a {
-      background: white;
+      
       width: 45px;
       height: 45px;
       border-radius: 50%;
@@ -152,7 +160,7 @@ function compartirContenido() {
       align-items: center;
       justify-content: center;
       font-size: 24px;
-      color: black;
+      color: white;
       text-decoration: none;
       transition: transform 0.3s;
     }
@@ -169,7 +177,7 @@ function compartirContenido() {
   body {
     background: url('fondo.jpg') no-repeat center center fixed;
     background-size: cover;
-  }
+   background: url(https://i.postimg.cc/qBKJG06P/images-2025-06-16-T225629-774.jpg) no-repeat center center fixed; background-size: cover;}
 
 </style>
 
@@ -250,7 +258,7 @@ function compartirContenido() {
 body {
   background: linear-gradient(135deg, #fff1f2, #ffe0e0);
   background-attachment: fixed;
-}
+ background: url(https://i.postimg.cc/qBKJG06P/images-2025-06-16-T225629-774.jpg) no-repeat center center fixed; background-size: cover;}
 </style>
 
 <style>
@@ -260,6 +268,14 @@ body {
   position: relative;
 }
 </style>
+
+<style>
+#header-text {
+  transition: opacity 0.8s ease;
+  display: inline-block;
+}
+</style>
+
 </head>
 <body>
 
@@ -268,7 +284,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-}
+ background: url(https://i.postimg.cc/qBKJG06P/images-2025-06-16-T225629-774.jpg) no-repeat center center fixed; background-size: cover;}
 #blur-bg {
   position: fixed;
   top: 0; left: 0;
@@ -317,13 +333,14 @@ body {
 </div>
 
 
+
 <header>
-  Radio Pasión
-  
+  <span id="header-text">Radio Pasión</span>
 </header>
+
 <div class="main" style="margin-bottom: 40px;">
 <!-- Puedes cambiar esta imagen: logo.png.[png|jpg] -->
-<img alt="Radio Pasión Logo" class="logo" id="logo-img" src="logo.png" style="margin-top: 60px; width: 200px; height: 200px;"/>
+<img alt="Radio Pasión Logo" class="logo" id="logo-img" src="https://i.postimg.cc/d0gF8T5b/FB-IMG-1749159170810.jpg" style="margin-top: 60px; width: 200px; height: 200px;"/>
 <div class="live-badge">LIVE</div>
 <div class="status" id="status">EN PAUSA</div>
 <audio id="audio">
@@ -354,14 +371,9 @@ body {
   });
 
     // Ocultar si ya fue instalada
-    window.addEventListener('appinstalled', () => {
-      localStorage.setItem('appInstalled', 'true');
-      installContainer.style.display = 'none';
-    });
+    
 
-    if (localStorage.getItem('appInstalled') === 'true') {
-      installContainer.style.display = 'none';
-    }
+    
     </script>
 <div class="social" style="margin-top: 20px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
 <a href="https://facebook.com/radiopasion" target="_blank"><img alt="Facebook" src="https://i.postimg.cc/8kfCdqnt/facebook.png" style="width:45px;height:45px;border-radius:50%;object-fit:cover;"/></a>
@@ -393,11 +405,7 @@ if ('serviceWorker' in navigator) {
 </div>
 
 
-<div id="installContainer" style="background: transparent; padding: 0; margin: 0; text-align:center;">
-  <button id="installBtn" style="background:#e91e63; color:white; border:none; padding:6px 10px; font-size:12px; border-radius:5px; font-weight:bold; cursor:pointer;">
-    Instalar aquí la app
-  </button>
-</div>
+
 
 <div style="margin-top: 10px;"><button class="play-btn" id="playButton" onclick="togglePlay()">▶</button></div>
 </div>
@@ -431,14 +439,9 @@ if ('serviceWorker' in navigator) {
   }
 
     // Ocultar si ya fue instalada
-    window.addEventListener('appinstalled', () => {
-      localStorage.setItem('appInstalled', 'true');
-      installContainer.style.display = 'none';
-    });
+    
 
-    if (localStorage.getItem('appInstalled') === 'true') {
-      installContainer.style.display = 'none';
-    }
+    
     </script>
 <script>
   function compartir() {
@@ -454,14 +457,9 @@ if ('serviceWorker' in navigator) {
   }
 
     // Ocultar si ya fue instalada
-    window.addEventListener('appinstalled', () => {
-      localStorage.setItem('appInstalled', 'true');
-      installContainer.style.display = 'none';
-    });
+    
 
-    if (localStorage.getItem('appInstalled') === 'true') {
-      installContainer.style.display = 'none';
-    }
+    
     </script>
 <script>
   if ('serviceWorker' in navigator) {
@@ -471,77 +469,11 @@ if ('serviceWorker' in navigator) {
   }
 
     // Ocultar si ya fue instalada
-    window.addEventListener('appinstalled', () => {
-      localStorage.setItem('appInstalled', 'true');
-      installContainer.style.display = 'none';
-    });
+    
 
-    if (localStorage.getItem('appInstalled') === 'true') {
-      installContainer.style.display = 'none';
-    }
+    
     </script>
 
-<script>
-let noticias = [], indice = 0;
-const feeds = [
-  "https://rpp.pe/feed",
-  "https://elcomercio.pe/rss/ultimas/",
-  "https://andina.pe/agencia/rss.aspx",
-  "https://diariopanorama.pe/feed/"
-];
-
-async function cargarTodasNoticias() {
-  try {
-    let todas = [];
-    for (const url of feeds) {
-      const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(url));
-      const data = await res.json();
-      todas = todas.concat(data.items || []);
-    }
-    noticias = todas.slice(0, 10);
-    mostrarNoticia();
-    setInterval(mostrarNoticia, 5000);
-  } catch {
-    document.getElementById("noticia-actual").innerText = "No se pudieron cargar noticias.";
-  }
-}
-
-function mostrarNoticia() {
-  if (noticias.length === 0) return;
-  const contenedor = document.getElementById("noticia-actual");
-  contenedor.style.opacity = 0;
-  setTimeout(() => {
-    contenedor.innerHTML = `<a href="${noticias[indice].link}" target="_blank" style="text-decoration:none;color:#333;">🗞️ ${noticias[indice].title}</a>`;
-    contenedor.style.opacity = 1;
-    indice = (indice + 1) % noticias.length;
-  }, 300);
-}
-
-cargarTodasNoticias();
-</script>
-
-
-<script>
-async function cargarMetadata() {
-  try {
-    const res = await fetch("https://corsproxy.io/?https://mediastreamm.com/cp/get_info.php?p=8226");
-    const data = await res.json();
-    const titulo = document.getElementById("title-meta");
-    const logo = document.getElementById("logo-img");
-
-    titulo.textContent = data.title || "Sin título";
-    if (data.art && !data.art.includes("nodj.png")) {
-      logo.src = data.art;
-    } else {
-      logo.src = "logo.png";
-    }
-  } catch (e) {
-    document.getElementById("title-meta").textContent = "⚠️ Error al cargar metadatos";
-  }
-}
-cargarMetadata();
-setInterval(cargarMetadata, 10000);
-</script>
 
 
 
@@ -563,11 +495,31 @@ async function cargarMetadata() {
       blurbg.style.filter = "blur(15px)";
       blurbg.style.backgroundColor = "";
     } else {
-      logo.src = "logo.png";
+      logo.src = "https://i.postimg.cc/d0gF8T5b/FB-IMG-1749159170810.jpg";
       blurbg.style.backgroundImage = "";
       blurbg.style.backgroundColor = "#000";
       blurbg.style.filter = "none";
     }
+
+    // Media Session API
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: data.title || "Radio Pasión",
+        artist: "Radio Pasión",
+        album: "En Vivo",
+        artwork: [
+          { src: data.art && !data.art.includes("nodj.png") ? data.art : "https://i.postimg.cc/d0gF8T5b/FB-IMG-1749159170810.jpg", sizes: "512x512", type: "image/png" }
+        ]
+      });
+
+      navigator.mediaSession.setActionHandler('play', () => {
+        document.getElementById("audio").play();
+      });
+      navigator.mediaSession.setActionHandler('pause', () => {
+        document.getElementById("audio").pause();
+      });
+    }
+
   } catch (e) {
     document.getElementById("title-meta").textContent = "⚠️ Error al cargar metadatos";
     const blurbg = document.getElementById("blur-bg");
@@ -584,9 +536,69 @@ setInterval(cargarMetadata, 10000);
 
 
 
-<div id="noticias-actualizadas" style="max-width: 90%; margin: 10px auto; font-family: sans-serif; background: #fffbe7; padding: 8px 10px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.05); font-size: 13px;">
-  <h2 style="text-align:center; color:#c62828;">📰 Noticias recientes</h2>
-  <div id="noticia-actual" style="text-align:center; transition: opacity 0.5s; ">Cargando noticias...</div>
+
+<script>
+async function cargarMetadata() {
+  try {
+    const res = await fetch("https://corsproxy.io/?https://mediastreamm.com/cp/get_info.php?p=8226");
+    const data = await res.json();
+    const titulo = document.getElementById("title-meta");
+    const logo = document.getElementById("logo-img");
+    const blurbg = document.getElementById("blur-bg");
+
+    titulo.textContent = data.title || "Sin título";
+
+    if (data.art && !data.art.includes("nodj.png")) {
+      logo.src = data.art;
+      blurbg.style.backgroundImage = `url('${data.art}')`;
+      blurbg.style.filter = "blur(15px)";
+      blurbg.style.backgroundColor = "";
+    } else {
+      logo.src = "https://i.postimg.cc/d0gF8T5b/FB-IMG-1749159170810.jpg";
+      blurbg.style.backgroundImage = "";
+      blurbg.style.backgroundColor = "#000";
+      blurbg.style.filter = "none";
+    }
+
+    // Media Session API
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: data.title || "Radio Pasión",
+        artist: "Radio Pasión",
+        album: "En Vivo",
+        artwork: [
+          { src: data.art && !data.art.includes("nodj.png") ? data.art : "https://i.postimg.cc/d0gF8T5b/FB-IMG-1749159170810.jpg", sizes: "512x512", type: "image/png" }
+        ]
+      });
+
+      navigator.mediaSession.setActionHandler('play', () => {
+        document.getElementById("audio").play();
+      });
+      navigator.mediaSession.setActionHandler('pause', () => {
+        document.getElementById("audio").pause();
+      });
+    }
+
+  } catch (e) {
+    document.getElementById("title-meta").textContent = "⚠️ Error al cargar metadatos";
+    const blurbg = document.getElementById("blur-bg");
+    blurbg.style.backgroundImage = "";
+    blurbg.style.backgroundColor = "#000";
+    blurbg.style.filter = "none";
+  }
+}
+cargarMetadata();
+setInterval(cargarMetadata, 10000);
+</script>
+
+
+
+
+
+
+<div id="noticias-actualizadas" style="max-width: 90%; margin: 10px auto; font-family: sans-serif; background: #c62828; padding: 8px 10px; border-radius: 5px; box-shadow: 0 0 5px rgba(0,0,0,0.05); font-size: 13px;">
+  <h2 style="text-align:center; color:white;">📰 Noticias recientes</h2>
+  <div id="noticia-actual" style="text-align:center; padding: 10px;">Cargando noticias...</div>
 
 
 
@@ -612,7 +624,7 @@ setInterval(cargarMetadata, 10000);
   position: fixed;
   bottom: 80px;
   right: 20px;
-  background: white;
+  
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   padding: 10px;
@@ -663,7 +675,7 @@ function toggleChat() {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 #chat-options {
-  background: white;
+  
   color: #007bff;
   margin-top: 8px;
   border-radius: 10px;
@@ -720,7 +732,7 @@ window.onload = () => {
   justify-content: center;
 }
 #form-box {
-  background: white;
+  
   padding: 20px;
   border-radius: 10px;
   width: 90%;
@@ -784,28 +796,192 @@ function enviarFormulario() {
 
 
 
-  <button id="installButton" style="display:none; background-color:#ff1744; color:white; font-size:16px; padding:10px 20px; border:none; border-radius:24px; margin-top:20px;">
-    📲 Instalar App
-  </button>
+<script>
+const frases = ["Radio Pasión", "La radio del amor ❤️"];
+let indiceFrase = 0;
+const headerText = document.getElementById("header-text");
+
+setInterval(() => {
+  headerText.style.opacity = 0;
+  setTimeout(() => {
+    indiceFrase = (indiceFrase + 1) % frases.length;
+    headerText.textContent = frases[indiceFrase];
+    headerText.style.opacity = 1;
+  }, 800);
+}, 4000);
+</script>
 
 
-  <script>
-    let deferredPrompt;
-    const installButton = document.getElementById('installButton');
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installButton.style.display = 'inline-block';
-      installButton.addEventListener('click', () => {
-        installButton.style.display = 'none';
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then(choice => {
-          if (choice.outcome !== 'accepted') {
-            installButton.style.display = 'inline-block';
-          }
-        });
-      });
-    });
-  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let noticias = [], indice = 0;
+
+const imagenesAlternas = ['https://i.postimg.cc/xC3VzphZ/images-2025-06-16-T224102-461.jpg', 'https://i.postimg.cc/26VXzcmv/images-2025-06-16-T224117-252.jpg'];
+
+function obtenerImagenAleatoria() {
+  return imagenesAlternas[Math.floor(Math.random() * imagenesAlternas.length)];
+}
+
+const feeds = [
+  "https://elpopular.pe/rss/",
+  "https://publimetro.pe/feed/",
+  "https://expreso.com.pe/feed/",
+  "https://lanoticia.pe/feed/",
+  "https://lalupa.pe/feed/",
+  "https://realidad.pe/feed/",
+  "https://enfoqueregional.pe/feed/",
+  "https://aprimerahora.pe/feed/",
+  "https://diariovoces.com.pe/feed/",
+  "https://diariocorreo.pe/rss/",
+  "https://elcomercio.pe/rss/ultimas/",
+  "https://peru21.pe/rss/",
+  "https://ojo.pe/rss/",
+  "https://trome.pe/rss/",
+  "https://larepublica.pe/rss",
+  "https://rpp.pe/feed",
+  "https://radiokaribena.pe/feed/",
+  "https://diarioelclarin.com.pe/feed/",
+  "https://panoramacajamarquino.com/feed/",
+  "https://encumbia.com/feed/",
+  "https://elcumbe.com.pe/feed/",
+  "https://exitosanoticias.pe/feed/"
+];
+
+const defaultImg = 'https://i.postimg.cc/59q6sY4L/images-2025-06-16-T221453-129.jpg';
+
+async function cargarTodasNoticias() {
+  try {
+    let todas = [];
+    for (const url of feeds) {
+      const res = await fetch("https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(url));
+      const data = await res.json();
+      const medio = new URL(url).hostname.replace("www.", "");
+      if (data.items) {
+        todas = todas.concat(data.items.map(item => ({
+          title: item.title,
+          link: item.link,
+          description: item.description,
+          source: medio,
+          thumbnail: item.thumbnail || (item.enclosure && item.enclosure.link) || extraerImagenDeDescripcion(item.description)
+        })));
+      }
+    }
+    noticias = todas.slice(0, 25);
+    mostrarNoticia();
+    setInterval(mostrarNoticia, 7000);
+  } catch {
+    document.getElementById("noticia-actual").innerText = "No se pudieron cargar noticias.";
+  }
+}
+
+function extraerImagenDeDescripcion(desc) {
+  const match = desc.match(/<img[^>]+src=["']([^"']+)["']/i);
+  return match ? match[1] : null;
+}
+
+function mostrarNoticia() {
+  if (noticias.length === 0) return;
+  const contenedor = document.getElementById("noticia-actual");
+  const noticia = noticias[indice];
+  contenedor.innerHTML = "";
+
+  const wrapper = document.createElement("div");
+  wrapper.style = "max-width: 320px; margin: auto;  border-radius: 10px; padding: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);";
+
+  const img = document.createElement("img");
+  
+let i = 0;
+setInterval(() => {
+  i = (i + 1) % imagenesAlternas.length;
+  if (!noticia.thumbnail) img.src = imagenesAlternas[i];
+}, 5000);
+img.src = imagenesAlternas[i];
+
+  img.alt = "imagen";
+  img.style = "height:90px !important;width:auto;border-radius:10px;background: #ffe600;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;object-fit:cover;";
+
+  if (noticia.thumbnail) {
+    const testImg = new Image();
+    testImg.onload = () => img.src = noticia.thumbnail;
+    testImg.src = noticia.thumbnail;
+  }
+
+  const link = document.createElement("a");
+  link.href = noticia.link;
+  link.target = "_blank";
+  link.innerText = noticia.title;
+  link.style = "display:block;font-weight:bold;font-size:13px;color:#fff;margin-bottom:5px;text-decoration:none;";
+
+  const fuente = document.createElement("div");
+  fuente.innerText = "Fuente: " + noticia.source;
+  fuente.style = "font-size:11px;color:#ffeb3b;";
+
+  wrapper.appendChild(img);
+  wrapper.appendChild(link);
+  wrapper.appendChild(fuente);
+  contenedor.appendChild(wrapper);
+
+  indice = (indice + 1) % noticias.length;
+}
+
+cargarTodasNoticias();
+</script>
+
+
+<script>
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Mostrar automáticamente
+  setTimeout(() => {
+    deferredPrompt.prompt();
+  }, 500); // medio segundo luego de abrir
+});
+</script>
+
+
+
+
+
+<script>
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+  const menu = document.createElement('div');
+  menu.style.position = 'absolute';
+  menu.style.top = e.clientY + 'px';
+  menu.style.left = e.clientX + 'px';
+  menu.style.width = '1px';
+  menu.style.height = '1px';
+  menu.style.background = 'transparent';
+  menu.style.zIndex = 10000;
+  document.body.appendChild(menu);
+  setTimeout(() => menu.remove(), 500);
+});
+
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey && ['u','s','c'].includes(e.key.toLowerCase()) || 
+      e.key === 'F12' || 
+      (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase()))) {
+    e.preventDefault();
+  }
+});
+document.addEventListener('selectstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+</script>
 
 </body>
