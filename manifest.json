@@ -1,7 +1,7 @@
 {
   "name": "Radio Pasi\u00f3n",
   "short_name": "RadioPasi\u00f3n",
-  "start_url": "index_radio_pasion_clip_derecho_vacio.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
